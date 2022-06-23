@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>ByteGopher_SimpleDouyin - RobKing Blog</title><meta name="Description" content="这是一个有温度，有情怀的技术博客"><meta property="og:title" content="ByteGopher_SimpleDouyin" />
+<meta property="og:description" content="目录 上手指南 开发前的配置要求 安装 文件目录说明 使用到的框架 贡献者 如何参与开源项目 版本控制 作者 鸣谢 上手指南 开发前的配置要求 go1.16以上 安装 1" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://RobKing9.github.io/blog/" /><meta property="og:image" content="https://RobKing9.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-24T01:51:45+08:00" />
+<meta property="article:modified_time" content="2022-06-24T01:51:45+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://RobKing9.github.io/logo.png"/>
+
+<meta name="twitter:title" content="ByteGopher_SimpleDouyin"/>
+<meta name="twitter:description" content="目录 上手指南 开发前的配置要求 安装 文件目录说明 使用到的框架 贡献者 如何参与开源项目 版本控制 作者 鸣谢 上手指南 开发前的配置要求 go1.16以上 安装 1"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://RobKing9.github.io/blog/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "ByteGopher_SimpleDouyin",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/RobKing9.github.io\/blog\/"
+        },"genre": "posts","wordcount":  455 ,
+        "url": "https:\/\/RobKing9.github.io\/blog\/","datePublished": "2022-06-24T01:51:45+08:00","dateModified": "2022-06-24T01:51:45+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "RobKing"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="RobKing Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="RobKing Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ByteGopher_SimpleDouyin</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>RobKing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-24">2022-06-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;455 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#上手指南">上手指南</a>
+      <ul>
+        <li><a href="#开发前的配置要求">开发前的配置要求</a></li>
+        <li><a href="#安装">安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#文件目录说明">文件目录说明</a></li>
+    <li><a href="#yum-技术栈">:yum: 技术栈</a></li>
+    <li><a href="#贡献者">贡献者</a>
+      <ul>
+        <li><a href="#如何参与开源项目">如何参与开源项目</a></li>
+      </ul>
+    </li>
+    <li><a href="#版本控制">版本控制</a></li>
+    <li><a href="#作者">作者</a></li>
+    <li><a href="#版权说明">版权说明</a></li>
+    <li><a href="#鸣谢">鸣谢</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><hr>
+<p><a href="https://github.com/RobKing9/ByteGopher_SimpleDouyin/graphs/contributors" target="_blank" rel="noopener noreffer "><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/github/contributors/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square"
+        data-srcset="https://img.shields.io/github/contributors/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square, https://img.shields.io/github/contributors/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square 1.5x, https://img.shields.io/github/contributors/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/github/contributors/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square"
+        title="Contributors" /></a> <a href="https://github.com/RobKing9/ByteGopher_SimpleDouyin/network/members" target="_blank" rel="noopener noreffer "><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/github/forks/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square"
+        data-srcset="https://img.shields.io/github/forks/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square, https://img.shields.io/github/forks/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square 1.5x, https://img.shields.io/github/forks/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/github/forks/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square"
+        title="Forks" /></a> <a href="https://github.com/RobKing9/ByteGopher_SimpleDouyin/stargazers" target="_blank" rel="noopener noreffer "><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/github/stars/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square"
+        data-srcset="https://img.shields.io/github/stars/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square, https://img.shields.io/github/stars/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square 1.5x, https://img.shields.io/github/stars/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/github/stars/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square"
+        title="Stargazers" /></a> <a href="https://img.shields.io/github/issues/RobKing9/ByteGopher_SimpleDouyin.svg" target="_blank" rel="noopener noreffer "><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/github/issues/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square"
+        data-srcset="https://img.shields.io/github/issues/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square, https://img.shields.io/github/issues/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square 1.5x, https://img.shields.io/github/issues/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/github/issues/RobKing9/ByteGopher_SimpleDouyin.svg?style=flat-square"
+        title="Issues" /></a></p>
+<h2 id="目录">目录</h2>
+<ul>
+<li><a href="#%e4%b8%8a%e6%89%8b%e6%8c%87%e5%8d%97" rel="">上手指南</a>
+<ul>
+<li><a href="#%e5%bc%80%e5%8f%91%e5%89%8d%e7%9a%84%e9%85%8d%e7%bd%ae%e8%a6%81%e6%b1%82" rel="">开发前的配置要求</a></li>
+<li><a href="#%e5%ae%89%e8%a3%85" rel="">安装</a></li>
+</ul>
+</li>
+<li><a href="#%e6%96%87%e4%bb%b6%e7%9b%ae%e5%bd%95%e8%af%b4%e6%98%8e" rel="">文件目录说明</a></li>
+<li><a href="#%e4%bd%bf%e7%94%a8%e5%88%b0%e7%9a%84%e6%a1%86%e6%9e%b6" rel="">使用到的框架</a></li>
+<li><a href="#%e8%b4%a1%e7%8c%ae%e8%80%85" rel="">贡献者</a>
+<ul>
+<li><a href="#%e5%a6%82%e4%bd%95%e5%8f%82%e4%b8%8e%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae" rel="">如何参与开源项目</a></li>
+</ul>
+</li>
+<li><a href="#%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6" rel="">版本控制</a></li>
+<li><a href="#%e4%bd%9c%e8%80%85" rel="">作者</a></li>
+<li><a href="#%e9%b8%a3%e8%b0%a2" rel="">鸣谢</a></li>
+</ul>
+<h2 id="上手指南">上手指南</h2>
+<h3 id="开发前的配置要求">开发前的配置要求</h3>
+<p>go1.16以上</p>
+<h3 id="安装">安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/RobKing9/ByteGopher_SimpleDouyin.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="文件目录说明">文件目录说明</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">|-- Dockerfile
+</span></span><span class="line"><span class="cl">|-- README.md
+</span></span><span class="line"><span class="cl">|-- controller
+</span></span><span class="line"><span class="cl">|   |-- comment.go
+</span></span><span class="line"><span class="cl">|   |-- favorite.go
+</span></span><span class="line"><span class="cl">|   |-- relation.go
+</span></span><span class="line"><span class="cl">|   |-- user.go
+</span></span><span class="line"><span class="cl">|   `-- video.go
+</span></span><span class="line"><span class="cl">|-- dao
+</span></span><span class="line"><span class="cl">|   |-- comment.go
+</span></span><span class="line"><span class="cl">|   |-- favorite.go
+</span></span><span class="line"><span class="cl">|   |-- mysql.go
+</span></span><span class="line"><span class="cl">|   |-- relation.go
+</span></span><span class="line"><span class="cl">|   |-- user.go
+</span></span><span class="line"><span class="cl">|   `-- video.go
+</span></span><span class="line"><span class="cl">|-- main.go
+</span></span><span class="line"><span class="cl">|-- middleware
+</span></span><span class="line"><span class="cl">|   `-- AuthMiddleware.go
+</span></span><span class="line"><span class="cl">|-- model
+</span></span><span class="line"><span class="cl">|   |-- comment.go
+</span></span><span class="line"><span class="cl">|   |-- common.go
+</span></span><span class="line"><span class="cl">|   |-- favorite.go
+</span></span><span class="line"><span class="cl">|   |-- follow.go
+</span></span><span class="line"><span class="cl">|   |-- user.go
+</span></span><span class="line"><span class="cl">|   `-- video.go
+</span></span><span class="line"><span class="cl">|-- router
+</span></span><span class="line"><span class="cl">|   `-- router.go
+</span></span><span class="line"><span class="cl">|-- tree.txt
+</span></span><span class="line"><span class="cl">`-- utils
+</span></span><span class="line"><span class="cl">    |-- convertVideoModelListToVideoList.go
+</span></span><span class="line"><span class="cl">    |-- deleteFile.go
+</span></span><span class="line"><span class="cl">    |-- format.go
+</span></span><span class="line"><span class="cl">    |-- jwt.go
+</span></span><span class="line"><span class="cl">    |-- qiniuUpload.go
+</span></span><span class="line"><span class="cl">    |-- randNum.go
+</span></span><span class="line"><span class="cl">    `-- timetool.go
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="yum-技术栈">:yum: 技术栈</h2>
+<ul>
+<li><a href="https://gin-gonic.com" target="_blank" rel="noopener noreffer ">Gin</a></li>
+<li><a href="https://gorm.io" target="_blank" rel="noopener noreffer ">Gorm</a></li>
+<li><a href="https://mysql.com" target="_blank" rel="noopener noreffer ">MySQL</a></li>
+</ul>
+<h2 id="贡献者">贡献者</h2>
+<p>请阅读<strong>README.md</strong> 查阅为该项目做出贡献的开发者。</p>
+<h3 id="如何参与开源项目">如何参与开源项目</h3>
+<p>贡献使开源社区成为一个学习、激励和创造的绝佳场所。你所作的任何贡献都是<strong>非常感谢</strong>的。</p>
+<ol>
+<li>Fork the Project</li>
+<li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
+<li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li>
+<li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<h2 id="版本控制">版本控制</h2>
+<p>该项目使用Git进行版本管理。您可以在repository参看当前可用版本。</p>
+<h2 id="作者">作者</h2>
+<p>曾祥文  QQ邮箱：2768817839@qq.com</p>
+<p><em>您也可以在贡献者名单中参看所有参与该项目的开发者。</em></p>
+<h2 id="版权说明">版权说明</h2>
+<p>该项目签署了MIT 授权许可，详情请参阅 <a href="https://github.com/RobKing9/ByteGopher_SimpleDouyin/blob/master/LICENSE.txt" target="_blank" rel="noopener noreffer ">LICENSE.txt</a></p>
+<h2 id="鸣谢">鸣谢</h2>
+<ul>
+<li><a href="https://youthcamp.bytedance.com/" target="_blank" rel="noopener noreffer ">字节跳动后端青训营</a></li>
+</ul>
+<!-- links -->
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-06-24</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/blog/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://RobKing9.github.io/blog/" data-title="ByteGopher_SimpleDouyin"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://RobKing9.github.io/blog/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://RobKing9.github.io/blog/" data-title="ByteGopher_SimpleDouyin"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://RobKing9.github.io/blog/" data-title="ByteGopher_SimpleDouyin"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://RobKing9.github.io/blog/" data-title="ByteGopher_SimpleDouyin" data-ralateuid="u/7708713224"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">RobKing</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
