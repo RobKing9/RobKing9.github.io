@@ -4,7 +4,15 @@
         <link>https://RobKing9.github.io/posts/</link>
         <description>All Posts | RobKing Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2768817839@qq.com (RobKing)</managingEditor>
-            <webMaster>2768817839@qq.com (RobKing)</webMaster><lastBuildDate>Mon, 27 Jun 2022 22:33:42 &#43;0800</lastBuildDate><atom:link href="https://RobKing9.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2768817839@qq.com (RobKing)</webMaster><lastBuildDate>Tue, 28 Jun 2022 21:17:25 &#43;0800</lastBuildDate><atom:link href="https://RobKing9.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>边无际 | Golang后端开发 | 2022.06.25</title>
+    <link>https://RobKing9.github.io/%E8%BE%B9%E6%97%A0%E9%99%85golang%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E7%BB%8F/</link>
+    <pubDate>Tue, 28 Jun 2022 21:17:25 &#43;0800</pubDate>
+    <author>RobKing</author>
+    <guid>https://RobKing9.github.io/%E8%BE%B9%E6%97%A0%E9%99%85golang%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E7%BB%8F/</guid>
+    <description><![CDATA[边无际 | Golang后端开发 | 2022.06.25 这算是我学习go语言来第一次参加面试。 一面 一面是在5月份左右 自我介绍 channel关闭了去读去写会出现什么问]]></description>
+</item>
+<item>
     <title>第一次字节面试---今日头条后端开发</title>
     <link>https://RobKing9.github.io/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E7%BB%8F/</link>
     <pubDate>Mon, 27 Jun 2022 22:33:42 &#43;0800</pubDate>
