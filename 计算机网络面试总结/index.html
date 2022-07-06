@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>计算机网络面试总结 - RobKing Blog</title><meta name="Description" content="这是一个有温度，有情怀的技术博客"><meta property="og:title" content="计算机网络面试总结" />
+<meta property="og:description" content="计算机网络 github地址 HTTP，HTTPS，DNS协议 OSI七层模型 介绍一下OSI七层模型和TCP五层模型？ TCP,UDP,IP协议分别" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" /><meta property="og:image" content="https://RobKing9.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-06T10:34:50+08:00" />
+<meta property="article:modified_time" content="2022-07-06T10:34:50+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://RobKing9.github.io/logo.png"/>
+
+<meta name="twitter:title" content="计算机网络面试总结"/>
+<meta name="twitter:description" content="计算机网络 github地址 HTTP，HTTPS，DNS协议 OSI七层模型 介绍一下OSI七层模型和TCP五层模型？ TCP,UDP,IP协议分别"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" /><link rel="prev" href="https://RobKing9.github.io/%E8%BE%B9%E6%97%A0%E9%99%85golang%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E7%BB%8F/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "计算机网络面试总结",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/RobKing9.github.io\/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93\/"
+        },"genre": "posts","wordcount":  6177 ,
+        "url": "https:\/\/RobKing9.github.io\/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93\/","datePublished": "2022-07-06T10:34:50+08:00","dateModified": "2022-07-06T10:34:50+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "RobKing"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="RobKing Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="RobKing Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">计算机网络面试总结</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>RobKing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-06">2022-07-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6177 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;13 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#osi七层模型">OSI七层模型</a>
+      <ul>
+        <li><a href="#介绍一下osi七层模型和tcp五层模型">介绍一下OSI七层模型和TCP五层模型？</a></li>
+        <li><a href="#tcpudpip协议分别属于什么层">TCP,UDP,IP协议分别属于什么层？</a></li>
+      </ul>
+    </li>
+    <li><a href="#http版本101120">HTTP版本1.0,1.1,2.0</a>
+      <ul>
+        <li><a href="#http10和http11有什么区别">http/1.0和http/1.1有什么区别？</a></li>
+        <li><a href="#http短连接和长连接有什么区别">http短连接和长连接有什么区别？</a></li>
+        <li><a href="#http20相比较与http11有什么特性">http/2.0相比较与http/1.1有什么特性？</a></li>
+      </ul>
+    </li>
+    <li><a href="#http报文结构请求方法状态码">HTTP报文结构，请求方法，状态码</a>
+      <ul>
+        <li><a href="#http请求方法有哪些">http请求方法有哪些？</a></li>
+        <li><a href="#get和post方法有什么区别">get和post方法有什么区别？</a></li>
+        <li><a href="#http状态码200403等等表示什么意思">http状态码200,403等等表示什么意思？</a></li>
+      </ul>
+    </li>
+    <li><a href="#http和https">HTTP和HTTPS</a>
+      <ul>
+        <li><a href="#http和https的区别">HTTP和HTTPS的区别？</a></li>
+        <li><a href="#请简述tls技术的工作原理">请简述TLS技术的工作原理？</a></li>
+      </ul>
+    </li>
+    <li><a href="#dns服务与安全">DNS服务与安全</a>
+      <ul>
+        <li><a href="#请简述域名系统dns的工作流程">请简述域名系统DNS的工作流程？</a></li>
+        <li><a href="#请简述cookie和session">请简述cookie和session？</a></li>
+        <li><a href="#你了解dns攻击吗是什么原理">你了解DNS攻击吗？是什么原理？</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#传输层协议">传输层协议</a>
+      <ul>
+        <li><a href="#请简述tcp和udp的区别">请简述TCP和UDP的区别？</a></li>
+      </ul>
+    </li>
+    <li><a href="#tcp连接及释放">TCP连接及释放</a>
+      <ul>
+        <li><a href="#请简述三次握手的过程为什么两次不行">请简述三次握手的过程？为什么两次不行？</a></li>
+        <li><a href="#tcp三次握手时的第一次的seq序号是怎样产生的-字节提前批">TCP三次握手时的第一次的seq序号是怎样产生的 字节提前批</a></li>
+        <li><a href="#请简述四次挥手的过程为什么三次不行">请简述四次挥手的过程？为什么三次不行？</a></li>
+        <li><a href="#time_wait为什么是2msl而不是1msl或者3msl">TIME_WAIT为什么是2MSL，而不是1MSL或者3MSL？</a></li>
+      </ul>
+    </li>
+    <li><a href="#tcp的可靠连接和粘包">TCP的可靠连接和粘包</a>
+      <ul>
+        <li><a href="#请简述tcp协议的滑动窗口">请简述TCP协议的滑动窗口？</a></li>
+        <li><a href="#请简述tcp协议的拥塞控制及算法">请简述TCP协议的拥塞控制及算法？</a></li>
+        <li><a href="#拥塞控制和流量控制的区别">拥塞控制和流量控制的区别</a></li>
+        <li><a href="#你了解arq协议吗">你了解ARQ协议吗？</a></li>
+        <li><a href="#请介绍一下tcp的粘包现象以及如何避免">请介绍一下TCP的粘包现象以及如何避免</a></li>
+        <li><a href="#请简述synf-flood攻击的原理">请简述SYNF flood攻击的原理</a></li>
+        <li><a href="#浏览器中输入一个网址后具体发生了什么">浏览器中输入一个网址后，具体发生了什么</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="计算机网络">计算机网络</h1>
+<p><a href="https://github.com/RobKing9/BackInterview_Tour/blob/master/collection/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md" target="_blank" rel="noopener noreffer ">github地址</a></p>
+<ul>
+<li><a href="#HTTP%ef%bc%8cHTTPS%ef%bc%8cDNS%e5%8d%8f%e8%ae%ae" rel="">HTTP，HTTPS，DNS协议</a>
+<ul>
+<li><a href="#OSI%e4%b8%83%e5%b1%82%e6%a8%a1%e5%9e%8b" rel="">OSI七层模型</a>
+<ul>
+<li><a href="#%e4%bb%8b%e7%bb%8d%e4%b8%80%e4%b8%8bOSI%e4%b8%83%e5%b1%82%e6%a8%a1%e5%9e%8b%e5%92%8cTCP%e4%ba%94%e5%b1%82%e6%a8%a1%e5%9e%8b%ef%bc%9f" rel="">介绍一下OSI七层模型和TCP五层模型？</a></li>
+<li><a href="#TCP,UDP,IP%e5%8d%8f%e8%ae%ae%e5%88%86%e5%88%ab%e5%b1%9e%e4%ba%8e%e4%bb%80%e4%b9%88%e5%b1%82%ef%bc%9f" rel="">TCP,UDP,IP协议分别属于什么层？</a></li>
+</ul>
+</li>
+<li><a href="#HTTP%e7%89%88%e6%9c%ac1.0,1.1,2.0" rel="">HTTP版本1.0,1.1,2.0</a>
+<ul>
+<li><a href="#http/1.0%e5%92%8chttp/1.1%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab%ef%bc%9f" rel="">http/1.0和http/1.1有什么区别？</a></li>
+<li><a href="#http%e7%9f%ad%e8%bf%9e%e6%8e%a5%e5%92%8c%e9%95%bf%e8%bf%9e%e6%8e%a5%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab%ef%bc%9f" rel="">http短连接和长连接有什么区别？</a></li>
+<li><a href="#http/2.0%e7%9b%b8%e6%af%94%e8%be%83%e4%b8%8ehttp/1.1%e6%9c%89%e4%bb%80%e4%b9%88%e7%89%b9%e6%80%a7%ef%bc%9f" rel="">http/2.0相比较与http/1.1有什么特性？</a></li>
+</ul>
+</li>
+<li><a href="#HTTP%e6%8a%a5%e6%96%87%e7%bb%93%e6%9e%84%ef%bc%8c%e8%af%b7%e6%b1%82%e6%96%b9%e6%b3%95%ef%bc%8c%e7%8a%b6%e6%80%81%e7%a0%81" rel="">HTTP报文结构，请求方法，状态码</a>
+<ul>
+<li><a href="#http%e8%af%b7%e6%b1%82%e6%96%b9%e6%b3%95%e6%9c%89%e5%93%aa%e4%ba%9b%ef%bc%9f" rel="">http请求方法有哪些？</a></li>
+<li><a href="#get%e5%92%8cpost%e6%96%b9%e6%b3%95%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab%ef%bc%9f" rel="">get和post方法有什么区别？</a></li>
+<li><a href="#http%e7%8a%b6%e6%80%81%e7%a0%81200,403%e7%ad%89%e7%ad%89%e8%a1%a8%e7%a4%ba%e4%bb%80%e4%b9%88%e6%84%8f%e6%80%9d%ef%bc%9f" rel="">http状态码200,403等等表示什么意思？</a></li>
+</ul>
+</li>
+<li><a href="#HTTP%e5%92%8cHTTPS" rel="">HTTP和HTTPS</a>
+<ul>
+<li><a href="#HTTP%e5%92%8cHTTPS%e7%9a%84%e5%8c%ba%e5%88%ab%ef%bc%9f" rel="">HTTP和HTTPS的区别？</a></li>
+<li><a href="#%e8%af%b7%e7%ae%80%e8%bf%b0TLS%e6%8a%80%e6%9c%af%e7%9a%84%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86%ef%bc%9f" rel="">请简述TLS技术的工作原理？</a></li>
+</ul>
+</li>
+<li><a href="#DNS%e6%9c%8d%e5%8a%a1%e4%b8%8e%e5%ae%89%e5%85%a8" rel="">DNS服务与安全</a>
+<ul>
+<li><a href="#%e8%af%b7%e7%ae%80%e8%bf%b0%e5%9f%9f%e5%90%8d%e7%b3%bb%e7%bb%9fDNS%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b%ef%bc%9f" rel="">请简述域名系统DNS的工作流程？</a></li>
+<li><a href="#%e4%bd%a0%e4%ba%86%e8%a7%a3DNS%e6%94%bb%e5%87%bb%e5%90%97%ef%bc%9f%e6%98%af%e4%bb%80%e4%b9%88%e5%8e%9f%e7%90%86%ef%bc%9f" rel="">你了解DNS攻击吗？是什么原理？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#TCP%ef%bc%8cUDP%ef%bc%8cIP%e5%8d%8f%e8%ae%ae" rel="">TCP，UDP，IP协议</a>
+<ul>
+<li><a href="#%e4%bc%a0%e8%be%93%e5%b1%82%e5%8d%8f%e8%ae%ae" rel="">传输层协议</a>
+<ul>
+<li><a href="#%e8%af%b7%e7%ae%80%e8%bf%b0TCP%e5%92%8cUDP%e7%9a%84%e5%8c%ba%e5%88%ab%ef%bc%9f" rel="">请简述TCP和UDP的区别？</a></li>
+</ul>
+</li>
+<li><a href="#TCP%e8%bf%9e%e6%8e%a5%e5%8f%8a%e9%87%8a%e6%94%be" rel="">TCP连接及释放</a>
+<ul>
+<li><a href="#%e8%af%b7%e7%ae%80%e8%bf%b0%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b%e7%9a%84%e8%bf%87%e7%a8%8b%ef%bc%9f%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%a4%e6%ac%a1%e4%b8%8d%e8%a1%8c%ef%bc%9f" rel="">请简述三次握手的过程？为什么两次不行？</a></li>
+<li>[TCP三次握手时的第一次的seq序号是怎样产生的 字节提前批](#TCP三次握手时的第一次的seq序号是怎样产生的 字节提前批)</li>
+<li><a href="#%e8%af%b7%e7%ae%80%e8%bf%b0%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b%e7%9a%84%e8%bf%87%e7%a8%8b%ef%bc%9f%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%89%e6%ac%a1%e4%b8%8d%e8%a1%8c%ef%bc%9f" rel="">请简述四次挥手的过程？为什么三次不行？</a></li>
+<li><a href="#TIME_WAIT%e4%b8%ba%e4%bb%80%e4%b9%88%e6%98%af2MSL%ef%bc%8c%e8%80%8c%e4%b8%8d%e6%98%af1MSL%e6%88%96%e8%80%853MSL%ef%bc%9f" rel="">TIME_WAIT为什么是2MSL，而不是1MSL或者3MSL？</a></li>
+</ul>
+</li>
+<li><a href="#TCP%e7%9a%84%e5%8f%af%e9%9d%a0%e8%bf%9e%e6%8e%a5%e5%92%8c%e7%b2%98%e5%8c%85" rel="">TCP的可靠连接和粘包</a>
+<ul>
+<li><a href="#%e8%af%b7%e7%ae%80%e8%bf%b0TCP%e5%8d%8f%e8%ae%ae%e7%9a%84%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3%ef%bc%9f" rel="">请简述TCP协议的滑动窗口？</a></li>
+<li><a href="#%e8%af%b7%e7%ae%80%e8%bf%b0TCP%e5%8d%8f%e8%ae%ae%e7%9a%84%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6%e5%8f%8a%e7%ae%97%e6%b3%95%ef%bc%9f" rel="">请简述TCP协议的拥塞控制及算法？</a></li>
+<li><a href="#%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6%e5%92%8c%e6%b5%81%e9%87%8f%e6%8e%a7%e5%88%b6%e7%9a%84%e5%8c%ba%e5%88%ab" rel="">拥塞控制和流量控制的区别</a></li>
+<li><a href="#%e8%af%b7%e4%bb%8b%e7%bb%8d%e4%b8%80%e4%b8%8bTCP%e7%9a%84%e7%b2%98%e5%8c%85%e7%8e%b0%e8%b1%a1%e4%bb%a5%e5%8f%8a%e5%a6%82%e4%bd%95%e9%81%bf%e5%85%8d" rel="">请介绍一下TCP的粘包现象以及如何避免</a></li>
+<li>[请简述SYNF flood攻击的原理](#请简述SYNF flood攻击的原理)</li>
+<li><a href="#%e6%b5%8f%e8%a7%88%e5%99%a8%e4%b8%ad%e8%be%93%e5%85%a5%e4%b8%80%e4%b8%aa%e7%bd%91%e5%9d%80%e5%90%8e%ef%bc%8c%e5%85%b7%e4%bd%93%e5%8f%91%e7%94%9f%e4%ba%86%e4%bb%80%e4%b9%88" rel="">浏览器中输入一个网址后，具体发生了什么</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="httphttpsdns协议">HTTP，HTTPS，DNS协议</h1>
+<h2 id="osi七层模型">OSI七层模型</h2>
+<h3 id="介绍一下osi七层模型和tcp五层模型">介绍一下OSI七层模型和TCP五层模型？</h3>
+<p>​		OSI七层模型从上到下依次为：</p>
+<ul>
+<li>应用层：为应用程序提供网络服务；</li>
+<li>表示层：数据格式转换、数据压缩和数据加密；</li>
+<li>会话层：建立、断开和维护通信链接；</li>
+<li>传输层：为上层协议提供端到端的可靠传输；</li>
+<li>网络层：寻址和路由；</li>
+<li>数据链路层：定义通过通信媒介互连的设备之间传输的规范；</li>
+<li>物理层：利用物理传输介质为数据链路层提供物理连接。</li>
+</ul>
+<p>​		TCP五层模型相比OSI七层模型，将OSI的应用层、表示层和会话层合为一层：应用层，其他不变。</p>
+<p>​		TCP/IP五层协议包括：应用层，传输层，网络层，数据链路层，物理层</p>
+<h3 id="tcpudpip协议分别属于什么层">TCP,UDP,IP协议分别属于什么层？</h3>
+<p>​		TCP，UDP协议属于传输层</p>
+<p>​		IP协议属于网络层</p>
+<h2 id="http版本101120">HTTP版本1.0,1.1,2.0</h2>
+<h3 id="http10和http11有什么区别">http/1.0和http/1.1有什么区别？</h3>
+<p>​		HTTP1.1默认开启长连接。在一个TCP连接上可以传送多个HTTP请求和响应。使用 TCP 长连接的方式改善了 HTTP/1.0 短连接造成的性能开销。</p>
+<p>​		支持管道（pipeline）网络传输。只要第一个请求发出去了，不必等其回来，就可以发第二个请求出去，可以减少整体的响应时间。</p>
+<p>​		http/1.1的缺点是服务端无法主动push</p>
+<h3 id="http短连接和长连接有什么区别">http短连接和长连接有什么区别？</h3>
+<p>​		HTTP中的长连接短连接指HTTP底层TCP的连接。</p>
+<p>​		短连接： 客户端与服务器进行一次HTTP连接操作，就进行一次TCP连接，连接结束TCP关闭连接。</p>
+<p>​		长连接：如果HTTP头部带有参数keep-alive，即开启长连接，网页完成打开后，底层用于传输数据的TCP连接不会直接关闭，会根据服务器设置的保持时间保持连接，保持时间过后连接关闭。</p>
+<h3 id="http20相比较与http11有什么特性">http/2.0相比较与http/1.1有什么特性？</h3>
+<ul>
+<li>多路复用。允许同时发起多重的“请求-响应”消息</li>
+<li>头部压缩。对消息头采用 Hpack 算法进行压缩传输，能够节省消息头占用的网络流量</li>
+<li>服务端推送。服务器端能够更快的把资源推送到客户端</li>
+</ul>
+<h2 id="http报文结构请求方法状态码">HTTP报文结构，请求方法，状态码</h2>
+<h3 id="http请求方法有哪些">http请求方法有哪些？</h3>
+<ul>
+<li>GET: 从服务器获取资源</li>
+<li>POST: 在服务器新建资源</li>
+<li>PUT: 在服务器更新资源</li>
+<li>DELETE: 在服务器删除资源</li>
+<li>HEAD: 获取资源的元数据</li>
+<li>OPTIONAL: 查询对指定的资源支持的方法</li>
+</ul>
+<h3 id="get和post方法有什么区别">get和post方法有什么区别？</h3>
+<p>​	Get：指定资源请求数据，刷新无害，Get请求的数据会附加到URL中，传输数据的大小受到url的限制。</p>
+<p>​	Post：向指定资源提交要被处理的数据。刷新会使数据会被重复提交。post在发送数据前会先将请求头发送给服务器进行确认，然后才真正发送数据。</p>
+<h3 id="http状态码200403等等表示什么意思">http状态码200,403等等表示什么意思？</h3>
+<ul>
+<li>1XX：接收的信息正在处理</li>
+<li>2XX：请求正常处理完毕</li>
+<li>3XX：重定向</li>
+<li>4XX：客户端错误</li>
+<li>5XX：服务端错误
+<ul>
+<li>200：OK 请求被正常处理</li>
+<li>204：No Content 请求被受理但没有资源可以返回</li>
+<li>301：永久性重定向</li>
+<li>302：临时重定向</li>
+<li>304：Not Modified 所请求的资源未修改，服务器返回此状态码，不返回任何资源</li>
+<li>400：Bad Request  客户端请求报文语法有误，服务器无法识别</li>
+<li>401：Unauthorized 请求需要认证</li>
+<li>403：Forbidden 请求的对应资源禁止被访问</li>
+<li>404：Not Found 服务器无法找到对应资源</li>
+<li>500：Internal Server Error 服务器内部错误</li>
+<li>502：Bad Gateway 网关或者代理服务器请求时，从远程服务器接收到一个无效的响应</li>
+<li>503：Service Unavailable 服务器正忙</li>
+</ul>
+</li>
+</ul>
+<h2 id="http和https">HTTP和HTTPS</h2>
+<h3 id="http和https的区别">HTTP和HTTPS的区别？</h3>
+<p>http所有传输的内容都是明文，并且客户端和服务器端都无法验证对方的身份。 https具有安全性的ssl加密传输协议，加密采用对称加密， https协议需要到ca申请证书，一般免费证书很少，需要交费。</p>
+<h3 id="请简述tls技术的工作原理">请简述TLS技术的工作原理？</h3>
+<p>SSL全称为Secure Sockets Layer即安全套接层，其继任为TLSTransport Layer Security传输层安全协议，均用于在传输层为数据通讯提供安全支持。</p>
+<p>可以将HTTPS协议简单理解为HTTP协议＋TLS/SSL</p>
+<h2 id="dns服务与安全">DNS服务与安全</h2>
+<h3 id="请简述域名系统dns的工作流程">请简述域名系统DNS的工作流程？</h3>
+<ol>
+<li>客户端发出查询请求，在本地计算机缓存查找，若没有找到，就会将请求发送给<strong>本地dns服务器</strong></li>
+<li>本地服务器没有找到客户端查询的信息，就会将此请求发送到<strong>根域名dns服务器</strong></li>
+<li>根域名服务器解析客户端请求的根域部分，它把包含的下一级的dns服务器的地址返回到客户端的dns服务器</li>
+<li>客户端的dns服务器根据返回的信息接着访问下一级的dns服务器</li>
+<li>这样<strong>递归</strong>的方法一级一级接近查询的目标，最后在有目标域名的服务器上面得到相应的IP信息</li>
+<li>客户端的本地的dns服务器会将查询结果返回给我们的客户端</li>
+<li>客户端根据得到的ip信息访问目标主机，完成解析过程</li>
+</ol>
+<h3 id="请简述cookie和session">请简述cookie和session？</h3>
+<p>HTTP 协议本身是无状态的，为了使其能处理更加复杂的逻辑，HTTP/1.1 引入 Cookie 来保存状态信息。</p>
+<p>Cookie是由服务端产生的，再发送给客户端保存，当客户端再次访问的时候，服务器可根据cookie辨识客户端是哪个，以此可以做个性化推送，免账号密码登录等等。</p>
+<p>session用于标记特定客户端信息，存在在服务器的一个文件里。 一般客户端带Cookie对服务器进行访问，可通过cookie中的session id从整个session中查询到服务器记录的关于客户端的信息。</p>
+<h3 id="你了解dns攻击吗是什么原理">你了解DNS攻击吗？是什么原理？</h3>
+<p>DNS攻击主要包括<strong>DNS劫持</strong>，DNS欺骗以及<strong>DDoS攻击</strong>。</p>
+<p><strong>DNS劫持</strong>：通过采用黑客手段控制了域名管理密码和域名管理邮箱，然后将该域名的DNS纪录指向到黑客可以控制的DNS服务器，然后通过在该DNS服务器上添加相应域名纪录，以至于访问该域名时，进入了黑客所指向的内容。</p>
+<p>DNS欺骗：DNS欺骗就是攻击者冒充域名服务器的一种欺骗行为。把查询的IP地址设为攻击者的IP地址，这样的话，用户上网就只能看到攻击者的主页，而不是用户想要取得的网站的主页了。</p>
+<p><strong>DDoS攻击</strong>：DDoS是一种网络攻击手法，DNS服务器本质上也是程序，黑客通常利用程序中的漏洞使目标服务器的网络或系统资源耗尽，使服务暂时中断或停止，导致其正常用户无法访问。</p>
+<h1 id="tcpudpip协议">TCP，UDP，IP协议</h1>
+<h2 id="传输层协议">传输层协议</h2>
+<h3 id="请简述tcp和udp的区别">请简述TCP和UDP的区别？</h3>
+<ul>
+<li>TCP作为面向流的协议，提供可靠的、面向连接的传输服务，并且提供点对点通信</li>
+<li>UDP作为面向报文的协议，不提供可靠交付，并且不需要连接，不仅仅对点对点，也支持多播和广播</li>
+</ul>
+<h2 id="tcp连接及释放">TCP连接及释放</h2>
+<h3 id="请简述三次握手的过程为什么两次不行">请简述三次握手的过程？为什么两次不行？</h3>
+<ol>
+<li>第一次握手:客户端将标志位SYN置为1，随机产生一个序列号seq=x，并将该数据包发送给服务端，客户端 进入syn_sent状态，等待服务端确认。</li>
+<li>第二次握手:服务端收到数据包后将标志位SYN和 ACK都置为1，随机产生一个序列号seq=y，并将该数据包发送给客户端以确认连接请求，服务端进入syn_rcvd状态。</li>
+<li>第三次握手:客户端收到确认后检查,如果正确则将标志位ACK为1，并将该数据包发送给服务端，服务端进行检查如果正确则连接建立成功，客户端和服务端进入established状态，完成三次握手，随后客户端和服务端之间可以开始传输 数据了</li>
+</ol>
+<p>假如TCP建立连接是两次握手的话，那么只要服务器有回应就建立连接；如果客户端因为网络问题发送了两次或者多次请求连接的信息，那么就会建立很多次不可靠的连接；另外如果服务器在返回给客户端的ACK数据包因为网络问题导致丢失，而客户端没有收到该ACK数据包而拒绝接收服务器接下来发送的数据，于是服务器一直在发送，客户端一直在拒绝，形成死锁，浪费服务器资源。</p>
+<h3 id="tcp三次握手时的第一次的seq序号是怎样产生的-字节提前批">TCP三次握手时的第一次的seq序号是怎样产生的 字节提前批</h3>
+<p>第一次的序号是随机序号，但也不是完全随机，它是使用一个ISN算法得到的。</p>
+<p>seq = C + H (源IP地址，目的IP地址，源端口，目的端口)。其中，C是一个计时器，每隔一段时间值就会变大，H是消息摘要算法，输入是一个四元组（源IP地址，目的IP地址，源端口，目的端口）。</p>
+<h3 id="请简述四次挥手的过程为什么三次不行">请简述四次挥手的过程？为什么三次不行？</h3>
+<ol>
+<li>第一次挥手：客户端将标志位FIN置为1，用来关闭客户端到服务端的数据传送，客户端进入fin_wait_1状态。</li>
+<li>第二次挥手：服务端收到FIN后，发送一个ACK给客户端，确认序号为收到序号+1，服务端进入Close_wait状态。此时TCP连接处于半关闭状态，即客户端已经没有要发送的数据了，但服务端若发送数据，则客户端仍要接收。</li>
+<li>第三次挥手：服务端标志位FIN置为1，用来关闭服务端到客户端的数据传送，服务端进入Last_ack状态。</li>
+<li>第四次挥手：客户端收到FIN后，客户端进入Time_wait状态，接着发送一个ACK给服务端，确认后，服务端进入Closed状态，完成四次挥手。</li>
+</ol>
+<p>如果是三次挥手，即把服务端向客户端发送报文的第二次挥手和第三次挥手合为一次，会造成服务端发送了回执后立刻又发送断开请求，造成服务端有数据没有全部发送至客户端，因此必须将第二次挥手和第三次挥手分开；五次挥手则完全没必要，多此一举。</p>
+<h3 id="time_wait为什么是2msl而不是1msl或者3msl">TIME_WAIT为什么是2MSL，而不是1MSL或者3MSL？</h3>
+<p>TIME_WAIT是指四次挥手中客户端接收了服务端的FIN报文并发送ACK报文给服务器后，仍然需要等待2MSL时间的过程。MSL即报文最大生存时间。</p>
+<p>设置2MSL可以保证上一次连接的报文已经在网络中消失，不会出现与新TCP连接报文冲突的情况。</p>
+<p>虽然按道理，四个报文都发送完毕，我们可以直接进入CLOSE状态了，但是我们必须假象网络是不可靠的，有可以最后一个ACK丢失。如果客户端发送的ACK发生丢失，服务器会再次发送FIN报文给客户端，所以TIME_WAIT状态就是用来重发可能丢失的ACK报文。</p>
+<h2 id="tcp的可靠连接和粘包">TCP的可靠连接和粘包</h2>
+<h3 id="请简述tcp协议的滑动窗口">请简述TCP协议的滑动窗口？</h3>
+<p>TCP的滑动窗口用来控制接收方和发送方的发送速率，避免拥塞的发生。滑动窗口其实就是接收端的缓冲区大小，接收方通在每个ACK数据包中附带自己当前的接受窗口（滑动窗口）的大小，当接收方确认了连续的数据序列之后，发送方的滑动窗口向后滑动，发送下一个数据序列，从而控制发送方的发送速度。</p>
+<h3 id="请简述tcp协议的拥塞控制及算法">请简述TCP协议的拥塞控制及算法？</h3>
+<p>拥塞控制是为了防止过多的数据注入到网络中，这样可能使网络中的路由器或链路负载过重，拥塞控制也是控制发送者的流量，拥塞控制有四种算法，<strong>慢启动、拥塞避免，快速重传和快速恢复</strong></p>
+<p>（1）慢启动。慢启动算法的思路是当主机开始发送数据时，先以比较小的拥塞窗口进行发送，然后以指数级翻倍，也就是说，由小到大逐渐增加拥塞窗口的大小。为了防止拥塞窗口cwnd增长过大引起网络拥塞，还要另外设置一个慢启动阈值ssthresh状态变量，当拥塞窗口的大小超过慢启动阈值的时候（ cwnd &gt; ssthresh 时），停止使用慢开始算法而改用拥塞避免算法</p>
+<p>（2）拥塞避免。拥塞避免算法的思路是让拥塞窗口cwnd缓慢地增大，即每经过一个往返时间RTT就把发送方的拥塞窗口cwnd加1，而不是加倍。</p>
+<p>（3）快速重传。如果在超时重传定时器溢出之前，接收到连续的三个重复冗余ACK，发送端便知晓哪个报文段在传输过程中丢失了，于是重发该报文段，不需要等待超时重传定时器溢出再发送该报文。</p>
+<p>（4）快速恢复。当超过设定的时间没有收到某个报文段的ack时，表示网络拥塞，慢启动阈值ssth变为原来一半，拥塞窗口cwnd=1，进入慢启动阶段</p>
+<h3 id="拥塞控制和流量控制的区别">拥塞控制和流量控制的区别</h3>
+<p>拥塞控制是防止过多的数据注入到网络中，导致网络发生拥塞；而流量控制是防止发送方一下子发送过多的数据到接收方，导致接收方缓存放不下。两种算法都是对发送方的行为进行控制的。</p>
+<h3 id="你了解arq协议吗">你了解ARQ协议吗？</h3>
+<p>ARQ协议，即自动重传请求（Automatic Repeat-reQuest），意思是如果发送方在发送后一段时间之内没有收到确认回执，它通常会重新发送。</p>
+<h3 id="请介绍一下tcp的粘包现象以及如何避免">请介绍一下TCP的粘包现象以及如何避免</h3>
+<p>TCP是面向流协议，发送的单位是字节流，因此会将多个小尺寸数据被封装在一个TCP报文中发出去的可能性。 可以简单的理解成发送端调用了两次send，接收端一个recv就把信息都读出来了。</p>
+<p>导致TCP粘包的原因主要有两方面：</p>
+<ul>
+<li>发送端等待缓冲区满才进行发送，造成粘包</li>
+<li>接收方来不及接收缓冲区内的数据，造成粘包</li>
+</ul>
+<p>避免粘包的措施：</p>
+<ul>
+<li>通过编程，强制使TCP进行数据传送，不必等到缓冲区满</li>
+<li>优化接收方接收数据的过程，使其来得及接收数据包，包括提高接收进程优先级等</li>
+<li>固定发送信息长度，或在两个信息之间加入分隔符。</li>
+</ul>
+<h3 id="请简述synf-flood攻击的原理">请简述SYNF flood攻击的原理</h3>
+<p>SYN Flood是一种拒绝服务（DDoS）攻击，其目的是通过消耗所有可用的服务器资源使服务器不可用于合法流量。通过重复发送初始连接请求（SYN）数据包，攻击者能够压倒目标服务器机器上的所有可用端口，导致目标设备根本不响应合法流量。</p>
+<p>原理是利用TCP连接三次握手的漏洞，使用欺骗性的IP地址，向目标服务器发送大量的SYN数据包</p>
+<p>防范</p>
+<ul>
+<li>第一种是缩短SYN Timeout时间，由于SYN Flood攻击的效果取决于服务器上保持的SYN半连接数。</li>
+<li>第二种方法是设置SYN Cookie，就是给每一个请求连接的IP地址分配一个Cookie，如果短时间内连续受到某个IP的重复SYN报文，就认定是受到了攻击，并记录地址信息，以后从这个IP地址来的包会被一概丢弃。</li>
+</ul>
+<h3 id="浏览器中输入一个网址后具体发生了什么">浏览器中输入一个网址后，具体发生了什么</h3>
+<ol>
+<li>首先是域名解析，客户端使用DNS协议将URL解析为对应的IP地址；</li>
+<li>然后建立TCP连接，客户端与服务器通过三次握手建立TCP连接；</li>
+<li>接着是http连接，客户端向服务器发送http连接请求； （http连接无需额外连接，直接通过已经建立的TCP连接发送）</li>
+<li>服务器对客户端发来的http请求进行处理，并返回响应；</li>
+<li>客户端接收到http响应，将结果渲染展示给用户。</li>
+</ol>
+<h2 id="参考资料">参考资料</h2>
+<p>​	<a href="https://blog.csdn.net/neverever01/article/details/108237531" target="_blank" rel="noopener noreffer ">超全面的后端开发C/C++面经整理分享</a></p>
+<p>​	<a href="https://zhuanlan.zhihu.com/p/366839763" target="_blank" rel="noopener noreffer ">计算机网络八股文背诵版</a></p>
+<p>​	<a href="https://zhuanlan.zhihu.com/p/138272238" target="_blank" rel="noopener noreffer ">计算机网络面试题（含答案）</a></p>
+<p>​</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-07-06</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" data-title="计算机网络面试总结"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" data-title="计算机网络面试总结"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" data-title="计算机网络面试总结"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" data-title="计算机网络面试总结" data-ralateuid="u/7708713224"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E8%BE%B9%E6%97%A0%E9%99%85golang%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E7%BB%8F/" class="prev" rel="prev" title="边无际 | Golang后端开发 | 2022.06.25"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>边无际 | Golang后端开发 | 2022.06.25</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">RobKing</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
