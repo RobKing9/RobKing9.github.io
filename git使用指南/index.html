@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Git使用指南 - RobKing Blog</title><meta name="Description" content="这是一个有温度，有情怀的技术博客"><meta property="og:title" content="Git使用指南" />
+<meta property="og:description" content="Git的安装和配置 下载Git 配置环境变量 检验安装成功 配置全局信息 1 2 3 git config --global user.name &#34;RobKing&#34; //用户名 git config --global user.email &#34;2768817839@qq.com&#34; //邮箱 git config -l //查看全局信息 配置代理 git" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://RobKing9.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" /><meta property="og:image" content="https://RobKing9.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-25T23:59:12+08:00" />
+<meta property="article:modified_time" content="2022-07-25T23:59:12+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://RobKing9.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Git使用指南"/>
+<meta name="twitter:description" content="Git的安装和配置 下载Git 配置环境变量 检验安装成功 配置全局信息 1 2 3 git config --global user.name &#34;RobKing&#34; //用户名 git config --global user.email &#34;2768817839@qq.com&#34; //邮箱 git config -l //查看全局信息 配置代理 git"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://RobKing9.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" /><link rel="prev" href="https://RobKing9.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Git使用指南",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/RobKing9.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/"
+        },"genre": "posts","wordcount":  2343 ,
+        "url": "https:\/\/RobKing9.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/","datePublished": "2022-07-25T23:59:12+08:00","dateModified": "2022-07-25T23:59:12+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "RobKing"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="RobKing Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="RobKing Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git使用指南</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>RobKing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-25">2022-07-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2343 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#git的安装和配置">Git的安装和配置</a>
+      <ul>
+        <li><a href="#配置代理">配置代理</a></li>
+      </ul>
+    </li>
+    <li><a href="#git指令的使用">Git指令的使用</a></li>
+    <li><a href="#将项目上传到github上">将项目上传到<code>Github</code>上</a></li>
+    <li><a href="#本地项目与github同步">本地项目与<code>Github</code>同步</a>
+      <ul>
+        <li><a href="#添加ssh-key">添加<code>SSH KEY</code></a></li>
+        <li><a href="#关联本地库和远程库">关联本地库和远程库</a></li>
+        <li><a href="#拉取最新代码">拉取最新代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#git分支管理"><code>Git</code>分支管理</a></li>
+    <li><a href="#gitignore文件的使用"><code>.gitignore</code>文件的使用</a></li>
+    <li><a href="#git-commit-message-编写指南"><code>git commit message</code> 编写指南</a></li>
+    <li><a href="#使用tree命令生成项目目录树">使用<code>tree</code>命令生成项目目录树</a></li>
+    <li><a href="#使用git遇到的bug及解决方法">使用<code>Git</code>遇到的<code>Bug</code>及解决方法</a>
+      <ul>
+        <li><a href="#解决git-clone速度慢的方法">解决git clone速度慢的方法</a></li>
+        <li><a href="#合并代码遇到error-your-local-changes-to-the-following-files-would-be-overwritten-by-merge">合并代码遇到error: Your local changes to the following files would be overwritten by merge</a>
+          <ul>
+            <li><a href="#解决方法">解决方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#提交代码遇到to-githubcomrobking9bytegopher_simpledouyingit--rejected--------dev---dev-non-fast-forward">提交代码遇到To github.com:RobKing9/ByteGopher_SimpleDouyin.git ! [rejected]        dev -&gt; dev (non-fast-forward)</a>
+          <ul>
+            <li><a href="#解决方法-1">解决方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#git-修改commit信息">git-修改commit信息</a></li>
+        <li><a href="#添加远程仓库遇到fatal-unsafe-repository-dagolangsrcaprojectbytegopher_simpledouyin-is-owned-by-someone-else">添加远程仓库遇到fatal: unsafe repository (&lsquo;D:/AGolang/src/Aproject/ByteGopher_SimpleDouyin&rsquo; is owned by someone else)</a>
+          <ul>
+            <li><a href="#解决方法-2">解决方法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="git的安装和配置">Git的安装和配置</h2>
+<ol>
+<li>
+<p><a href="https://git-scm.com/download" target="_blank" rel="noopener noreffer ">下载Git</a></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%AE%89%E8%A3%85git.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%AE%89%E8%A3%85git.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%AE%89%E8%A3%85git.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%AE%89%E8%A3%85git.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%AE%89%E8%A3%85git.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%AE%89%E8%A3%85git.png" /></p>
+</li>
+<li>
+<p>配置环境变量</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" /></p>
+</li>
+<li>
+<p>检验安装成功</p>
+<img src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/version.png" style="zoom:150%;" />
+</li>
+<li>
+<p>配置全局信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl"><span class="nx">git</span> <span class="nx">config</span> <span class="o">--</span><span class="nx">global</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="s">&#34;RobKing&#34;</span>  <span class="c1">//用户名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">git</span> <span class="nx">config</span> <span class="o">--</span><span class="nx">global</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="s">&#34;2768817839@qq.com&#34;</span>  <span class="c1">//邮箱
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">git</span> <span class="nx">config</span> <span class="o">-</span><span class="nx">l</span> <span class="c1">//查看全局信息
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="配置代理">配置代理</h3>
+<ul>
+<li><code>git config --global https.proxy http://127.0.0.1:7890  //配置代理</code></li>
+<li><code>git config --global --unset http.proxy  //取消http代理</code></li>
+</ul>
+<h2 id="git指令的使用">Git指令的使用</h2>
+<ul>
+<li><code>git log</code>查看<code>commit</code>日志</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log.png" /></p>
+<ul>
+<li><code>git log --oneline --graph --decorate --all</code>查看节点树</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log%20tree.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log%20tree.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log%20tree.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log%20tree.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log%20tree.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20log%20tree.png" /></p>
+<ul>
+<li><code>git reset --hard commit_id</code>  回退到指定id （指定版本）</li>
+</ul>
+<img src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20reset.png" style="zoom:110%;" />
+<p>​	此操作结束之后 本地代码和远程仓库代码 都会回退到 原来的版本</p>
+<ul>
+<li>
+<p><code>git reset --hard origin/dev</code> 取消当前改动(回退指定id的改动），重置到库的最新版本（取消回退）</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%8F%96%E6%B6%88%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%8F%96%E6%B6%88%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%8F%96%E6%B6%88%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%8F%96%E6%B6%88%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%8F%96%E6%B6%88%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E5%8F%96%E6%B6%88%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC.png" /></p>
+</li>
+</ul>
+<h2 id="将项目上传到github上">将项目上传到<code>Github</code>上</h2>
+<ol>
+<li>
+<p>进入<code>Github</code>首页，点击<code>New repository</code>新建一个项目（添加一个<code>Readme</code>）</p>
+</li>
+<li>
+<p>在项目的根路径下<code>git clone</code> + 项目名（下载指定分支 git clone -b dev ***）</p>
+</li>
+<li>
+<p>更新代码提交</p>
+<ul>
+<li>
+<p><code>git add .</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20add.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20add.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20add.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20add.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20add.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20add.png" /></p>
+</li>
+<li>
+<p><code>git commit -m &quot;first commit&quot;</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20commit.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20commit.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20commit.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20commit.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20commit.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20commit.png" /></p>
+</li>
+<li>
+<p><code>git push  origin master(main)</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20first.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20first.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20first.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20first.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20first.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20first.png" /></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="本地项目与github同步">本地项目与<code>Github</code>同步</h2>
+<h3 id="添加ssh-key">添加<code>SSH KEY</code></h3>
+<ol>
+<li>
+<p><code>ssh-keygen -t rsa -C “2768817839@qq.com”</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20key.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20key.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20key.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20key.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20key.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20key.png" /></p>
+<p>成功生成<code>SSH key</code>了，可以到<code>C:/Users/</code>你的用户账号<code>/.ssh</code>文件夹下看</p>
+<p><code>Linux</code>下可以<code>cd ~./ssh</code></p>
+</li>
+<li>
+<p>复制<code>.ssh</code>文件夹下<code>id_rsa.pub</code>文件的内容添加到<code>github</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20github.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20github.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20github.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20github.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20github.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20github.png" /></p>
+</li>
+<li>
+<p>测试<code>ssh</code>连接</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20test.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20test.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20test.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20test.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20test.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/ssh%20test.png" /></p>
+</li>
+</ol>
+<h3 id="关联本地库和远程库">关联本地库和远程库</h3>
+<ul>
+<li>
+<p><code>git remote add origin git@github.com:RobKing9/CargoManageSystem.git</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20add.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20add.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20add.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20add.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20add.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20add.png" /></p>
+</li>
+<li>
+<p>如果<code>ssh</code>被占用 将导致或者如果项目是<code>http</code>协议</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20exist.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20exist.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20exist.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20exist.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20exist.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20exist.png" /></p>
+</li>
+<li>
+<p>需要删除远程<code>git</code>仓库，执行<code>git remote rm origin</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20rm.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20rm.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20rm.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20rm.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20rm.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20remote%20rm.png" /></p>
+</li>
+<li>
+<p>执行指令 <code>git remote -v</code>查看当前情况</p>
+</li>
+</ul>
+<h3 id="拉取最新代码">拉取最新代码</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/fetch.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/fetch.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/fetch.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/fetch.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/fetch.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/fetch.png" /></p>
+<p>参看版本差异可直接 <code>git log -p master</code></p>
+<h2 id="git分支管理"><code>Git</code>分支管理</h2>
+<ul>
+<li>
+<p>将远程仓库的分支信息拉取到本地仓库<code>git fetch</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20fetch%20fresh.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20fetch%20fresh.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20fetch%20fresh.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20fetch%20fresh.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20fetch%20fresh.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20fetch%20fresh.png" /></p>
+</li>
+<li>
+<p>在本地创建新分支 <code>git branch [分支名]</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch.png" /></p>
+</li>
+<li>
+<p>切换分支 <code>git checkout [分支名]</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20switch.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20switch.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20switch.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20switch.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20switch.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20switch.png" /></p>
+</li>
+<li>
+<p>git branch 查看本地分支</p>
+</li>
+<li>
+<p>git branch -a 查看所有分支</p>
+</li>
+<li>
+<p><code>git checkout -b main origin/main</code> 创建并切换分支</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20checkout.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20checkout.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20checkout.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20checkout.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20checkout.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20checkout.png" /></p>
+</li>
+<li>
+<p>删除分支</p>
+</li>
+</ul>
+<p>本地：<code>git branch -d master</code></p>
+<p>远程库：<code>git push -d origin master</code>或者<code>git push origin :master</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch%20-d.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch%20-d.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch%20-d.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch%20-d.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch%20-d.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20branch%20-d.png" /></p>
+<h2 id="gitignore文件的使用"><code>.gitignore</code>文件的使用</h2>
+<p>如果项目已经<code>push</code>上去了 但是没有忽略 ，增加 <code>.gitignore</code> 文件</p>
+<p><code>.gitignore</code>只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改<code>.gitignore</code>是无效的。</p>
+<p>解决方法就是先把本地缓存删除（改变成未track状态），然后再提交:</p>
+<ul>
+<li><code>git rm -r --cached .</code></li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/cache.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/cache.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/cache.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/cache.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/cache.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/cache.png" /></p>
+<ul>
+<li>
+<p>再次执行 <code>git add . --&gt;git commit -m &quot;update .gitignore&quot; --&gt; git push origin dev</code></p>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">*.a             表示忽略所有 .a 结尾的文件
+</span></span><span class="line"><span class="cl">!lib.a          表示但lib.a除外
+</span></span><span class="line"><span class="cl">/TODO           表示仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+</span></span><span class="line"><span class="cl">build/          表示忽略 build/目录下的所有文件，过滤整个build文件夹； .idea/
+</span></span><span class="line"><span class="cl">doc/*.txt       表示会忽略doc/notes.txt但不包括 doc/server/arch.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bin/:           表示忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件
+</span></span><span class="line"><span class="cl">/bin:           表示忽略根目录下的bin文件
+</span></span><span class="line"><span class="cl">/*.c:           表示忽略cat.c，不忽略 build/cat.c
+</span></span><span class="line"><span class="cl">debug/*.obj:    表示忽略debug/io.obj，不忽略 debug/common/io.obj和tools/debug/io.obj
+</span></span><span class="line"><span class="cl">**/foo:         表示忽略/foo,a/foo,a/b/foo等
+</span></span><span class="line"><span class="cl">a/**/b:         表示忽略a/b, a/x/b,a/x/y/b等
+</span></span><span class="line"><span class="cl">!/bin/run.sh    表示不忽略bin目录下的run.sh文件
+</span></span><span class="line"><span class="cl">*.log:          表示忽略所有 .log 文件
+</span></span><span class="line"><span class="cl">config.php:     表示忽略当前路径的 config.php 文件
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/mtk/           表示过滤整个文件夹
+</span></span><span class="line"><span class="cl">*.zip           表示过滤所有.zip文件
+</span></span><span class="line"><span class="cl">/mtk/do.c       表示过滤某个具体文件
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">被过滤掉的文件就不会出现在git仓库中（gitlab或github）了，当然本地库中还有，只是push的时候不会上传。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">需要注意的是，gitignore还可以指定要将哪些文件添加到版本管理中，如下：
+</span></span><span class="line"><span class="cl">!*.zip
+</span></span><span class="line"><span class="cl">!/mtk/one.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">唯一的区别就是规则开头多了一个感叹号，Git会将满足这类规则的文件添加到版本管理中。为什么要有两种规则呢？
+</span></span><span class="line"><span class="cl">想象一个场景：假如我们只需要管理/mtk/目录中的one.txt文件，这个目录中的其他文件都不需要管理，那么.gitignore规则应写为：：
+</span></span><span class="line"><span class="cl">/mtk/*
+</span></span><span class="line"><span class="cl">!/mtk/one.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">假设我们只有过滤规则，而没有添加规则，那么我们就需要把/mtk/目录下除了one.txt以外的所有文件都写出来！
+</span></span><span class="line"><span class="cl">注意上面的/mtk/*不能写为/mtk/，否则父目录被前面的规则排除掉了，one.txt文件虽然加了!过滤规则，也不会生效！
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">----------------------------------------------------------------------------------
+</span></span><span class="line"><span class="cl">还有一些规则如下：
+</span></span><span class="line"><span class="cl">fd1/*
+</span></span><span class="line"><span class="cl">说明：忽略目录 fd1 下的全部内容；注意，不管是根目录下的 /fd1/ 目录，还是某个子目录 /child/fd1/ 目录，都会被忽略；
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/fd1/*
+</span></span><span class="line"><span class="cl">说明：忽略根目录下的 /fd1/ 目录的全部内容；
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/*
+</span></span><span class="line"><span class="cl">!.gitignore
+</span></span><span class="line"><span class="cl">!/fw/ 
+</span></span><span class="line"><span class="cl">/fw/*
+</span></span><span class="line"><span class="cl">!/fw/bin/
+</span></span><span class="line"><span class="cl">!/fw/sf/
+</span></span><span class="line"><span class="cl">说明：忽略全部内容，但是不忽略 .gitignore 文件、根目录下的 /fw/bin/ 和 /fw/sf/ 目录；注意要先对bin/的父目录使用!规则，使其不被排除。
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="git-commit-message-编写指南"><code>git commit message</code> 编写指南</h2>
+<p>Head+Body+Footer  ；Head:
+type
+• feat：新功能（feature）
+• fix：修补bug
+• docs：文档（documentation）
+• style： 格式（不影响代码运行的变动）
+• refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+• test：增加测试
+• chore：构建过程或辅助工具的变动</p>
+<p>scope
+subject</p>
+<h2 id="使用tree命令生成项目目录树">使用<code>tree</code>命令生成项目目录树</h2>
+<ol>
+<li>
+<p>下载 <code>tree</code> 命令的二进制包，安装 <code>tree</code> 命令工具;<a href="http://gnuwin32.sourceforge.net/packages/tree.htm" target="_blank" rel="noopener noreffer ">地址</a>，选择下载 <code>Binaries zip</code> 文件</p>
+</li>
+<li>
+<p>解压压缩包，找到压缩包内的 <code>bin</code> 目录，将 <code>bin</code> 目录下的 <code>tree.exe</code> 复制；</p>
+</li>
+<li>
+<p>找到<code>Git</code>的<code>Bin</code>目录，将 tree.exe 粘贴到该目录下，安装即完成</p>
+</li>
+<li>
+<p><code>tree -L 5 -I &quot;node_modules|dist|dist.zip&quot; &gt;tree.txt</code> 将目录结构导出</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%9B%AE%E5%BD%95%E6%A0%91.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%9B%AE%E5%BD%95%E6%A0%91.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%9B%AE%E5%BD%95%E6%A0%91.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%9B%AE%E5%BD%95%E6%A0%91.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%9B%AE%E5%BD%95%E6%A0%91.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E7%9B%AE%E5%BD%95%E6%A0%91.png" /></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/sandy_sweet/article/details/84873053" target="_blank" rel="noopener noreffer ">参考链接</a></p>
+</li>
+</ol>
+<h2 id="使用git遇到的bug及解决方法">使用<code>Git</code>遇到的<code>Bug</code>及解决方法</h2>
+<h3 id="解决git-clone速度慢的方法">解决git clone速度慢的方法</h3>
+<p>//这是我们要clone的</p>
+<p><code>git clone https://github.com/Hackergeek/architecture-samples</code></p>
+<p>//使用镜像</p>
+<p><code>git clone https://github.com.cnpmjs.org/Hackergeek/architecture-samples</code></p>
+<p>//或者使用镜像</p>
+<p><code>git clone https://git.sdut.me/Hackergeek/architecture-samples</code></p>
+<p>几个可用的镜像源</p>
+<ul>
+<li><code>https://hub.fastgit.org](https://hub.fastgit.org/)</code></li>
+<li><code>https://github.com.cnpmjs.org](https://github.com.cnpmjs.org/)</code></li>
+<li><code>https://github.bajins.com](https://github.bajins.com/)</code></li>
+<li><code>https://github.rc1844.workers.dev](https://github.rc1844.workers.dev/)</code></li>
+</ul>
+<h3 id="合并代码遇到error-your-local-changes-to-the-following-files-would-be-overwritten-by-merge">合并代码遇到error: Your local changes to the following files would be overwritten by merge</h3>
+<img src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725231147.png" style="zoom:120%;" />
+<h4 id="解决方法">解决方法</h4>
+<ul>
+<li>执行<code>git stash</code> 本地刚才修改的代码将会被暂时封存起来</li>
+</ul>
+<img src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/stash" style="zoom:110%;" />
+<ul>
+<li><code>git merge origin/feature-feed-user</code> 重新合并</li>
+</ul>
+<img src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20merge.png" style="zoom:120%;" />
+<ul>
+<li>
+<p><code>git stash pop</code>  服务器上的代码更新到了本地，而且你本地修改的代码也没有被覆盖</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/stash%20pop.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/stash%20pop.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/stash%20pop.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/stash%20pop.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/stash%20pop.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/stash%20pop.png" /></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/misakaqunianxiatian/article/details/51103734" target="_blank" rel="noopener noreffer ">参考链接</a></p>
+</li>
+</ul>
+<h3 id="提交代码遇到to-githubcomrobking9bytegopher_simpledouyingit--rejected--------dev---dev-non-fast-forward">提交代码遇到To github.com:RobKing9/ByteGopher_SimpleDouyin.git ! [rejected]        dev -&gt; dev (non-fast-forward)</h3>
+<p>error: failed to push some refs to &lsquo;github.com:RobKing9/ByteGopher_SimpleDouyin.git&rsquo;</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20error.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20error.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20error.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20error.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20error.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/git%20push%20error.png" /></p>
+<h4 id="解决方法-1">解决方法</h4>
+<p>说明远程仓库的代码比本地先更新 遇到了冲突 无法提交</p>
+<ul>
+<li>
+<p>首先把远程仓库最新的代码拉下来 （参考上面 本地项目与<code>Github</code>同步的拉取代码）</p>
+</li>
+<li>
+<p>手动解决冲突 留下需要的代码 删除不需要的</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png" /></p>
+</li>
+<li>
+<p>再次执行 <code>git add . --&gt;git commit -m &quot;&quot; --&gt; git push origin dev</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725232317.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725232317.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725232317.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725232317.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725232317.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725232317.png" /></p>
+</li>
+</ul>
+<h3 id="git-修改commit信息">git-修改commit信息</h3>
+<ul>
+<li><a href="https://blog.csdn.net/Muscleape/article/details/105637401" target="_blank" rel="noopener noreffer ">参考链接</a></li>
+</ul>
+<h3 id="添加远程仓库遇到fatal-unsafe-repository-dagolangsrcaprojectbytegopher_simpledouyin-is-owned-by-someone-else">添加远程仓库遇到fatal: unsafe repository (&lsquo;D:/AGolang/src/Aproject/ByteGopher_SimpleDouyin&rsquo; is owned by someone else)</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725235414.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725235414.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725235414.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725235414.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725235414.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220725235414.png" /></p>
+<h4 id="解决方法-2">解决方法</h4>
+<ul>
+<li><code>git config --global --add safe.directory *</code></li>
+<li><a href="https://blog.csdn.net/qq_38292379/article/details/124613747" target="_blank" rel="noopener noreffer ">参考链接</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-07-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://RobKing9.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" data-title="Git使用指南"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://RobKing9.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://RobKing9.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" data-title="Git使用指南"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://RobKing9.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" data-title="Git使用指南"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://RobKing9.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" data-title="Git使用指南" data-ralateuid="u/7708713224"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="prev" rel="prev" title="操作系统面试总结	 | 2022最新 | 斩获大厂offer"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>操作系统面试总结	 | 2022最新 | 斩获大厂offer</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">RobKing</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
