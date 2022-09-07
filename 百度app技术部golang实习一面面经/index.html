@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>百度APP技术部golang实习一面面经 - RobKing Blog</title><meta name="Description" content="这是一个有温度，有情怀的技术博客"><meta property="og:title" content="百度APP技术部golang实习一面面经" />
+<meta property="og:description" content="百度APP技术部 | Golang后端实习生 | 2022.09.06 一面面试 时间：2022.09.06 下午14:00-14:51 时长：51min 自我介绍 简单介绍项目" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/" /><meta property="og:image" content="https://RobKing9.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-07T23:47:58+08:00" />
+<meta property="article:modified_time" content="2022-09-07T23:47:58+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://RobKing9.github.io/logo.png"/>
+
+<meta name="twitter:title" content="百度APP技术部golang实习一面面经"/>
+<meta name="twitter:description" content="百度APP技术部 | Golang后端实习生 | 2022.09.06 一面面试 时间：2022.09.06 下午14:00-14:51 时长：51min 自我介绍 简单介绍项目"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/" /><link rel="prev" href="https://RobKing9.github.io/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" /><link rel="next" href="https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%BA%8C%E9%9D%A2%E9%9D%A2%E7%BB%8F/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "百度APP技术部golang实习一面面经",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/RobKing9.github.io\/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F\/"
+        },"genre": "posts","wordcount":  1056 ,
+        "url": "https:\/\/RobKing9.github.io\/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F\/","datePublished": "2022-09-07T23:47:58+08:00","dateModified": "2022-09-07T23:47:58+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "RobKing"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="RobKing Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="RobKing Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">百度APP技术部golang实习一面面经</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>RobKing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-07">2022-09-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1056 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一面面试">一面面试</a></li>
+    <li><a href="#面试心得">面试心得</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="百度app技术部--golang后端实习生--20220906">百度APP技术部 | Golang后端实习生 | 2022.09.06</h1>
+<h2 id="一面面试">一面面试</h2>
+<p>时间：2022.09.06 下午14:00-14:51</p>
+<p>时长：51min</p>
+<ul>
+<li>自我介绍</li>
+<li>简单介绍项目</li>
+<li>怎么实现接口和数据节点解耦？怎么自由扩展？</li>
+<li>为什么使用消息队列？不使用其他方式？好像也没有太大用处？</li>
+<li>你对RabbitMQ有多少的了解？</li>
+<li>你用到了ES？怎么使用到系统的？</li>
+<li>怎么通过ES得到信息（需要反馈）？结构体信息（元数据）</li>
+<li>怎么断点上传？指定range头部</li>
+<li><strong>断点上传的过程中有一个数据节点垮掉了怎么办？你会怎么去改进？</strong></li>
+<li>了解其他语言吗？为什么选择go语言？</li>
+<li>有缓存和无缓存的channel有什么区别？关闭的channel（有和无缓冲）可以读到数据吗？确定吗？分别使用什么场景？多个协程访问会怎么样？</li>
+<li>操作系统学过吗？进程，线程，协程的区别？</li>
+<li>进程中一个线程中出现问题会影响到进程吗？</li>
+<li>fork一个子进程？父进程垮掉了会影响子进程吗？父进程获取不到子进程的id会怎么样？父进程会等待子进程运行完毕吗</li>
+<li>子进程垮掉会影响父进程吗？然后问到了孤儿进程和僵尸进程？</li>
+<li>子进程变成孤儿进程了发生死循环会怎么样？</li>
+<li>进程间怎么通信的？（看了我的博客总结的操作系统网络知识）</li>
+<li>计算机网络学过吗？get和put有什么区别？可以改变URL（参数）吗？</li>
+<li>TCP和UDP了解吗？</li>
+<li>数据结构学了吗？怎么判断一个链表有没有环？</li>
+<li>怎么判断两个链表有没有公共节点？<strong>有没有其他的方法？</strong></li>
+<li>了解排序算法吗？堆排序说一下？大顶堆和小顶堆？堆排序是不是稳定的？其他有哪种稳定的排序？</li>
+<li>归并排序稳定的？为什么会稳定或者会不稳定？</li>
+<li>快排是不是稳定的？算法时间复杂度？最坏是什么情况？时间复杂度？<strong>为什么会是O(nlogn)？</strong></li>
+<li>你还有什么问题？</li>
+<li>面试表现怎么样？有什么可以改进的？</li>
+<li>百度技术部用到了哪些技术？用go用的多吗？</li>
+<li>看重哪一方面？容易通过面试</li>
+</ul>
+<p>（面试录了音，所以非常的详细）</p>
+<h2 id="面试心得">面试心得</h2>
+<p>整体面试来说大多数都能回答上来，因为好多问题都基本是我准备好了的，面试官对于一个知识喜欢一直往下问直到我答不上为止，有一些深度的，还有改进的没有回答上来，面试整体氛围还是不错的，讨论技术有说有笑，另外我发现面试官会去看我的博客以及我写的总结，还有就是竞争者真的很多，面试官也主要是看中了我做的分布式对象存储项目，其他的没做这个项目的都被刷下去了，面试的基本都是做了相关的项目！</p>
+<p>面试体验还不错，我觉得这场面试比之前有很大的提升，同时也学到了很多的东西！</p>
+<p>今晚七点多收到面试通过了，约了第二天的二面！</p>
+<p>有24届想交流的可以私信我，我建立了一个24届的实习交流群，大家会分享一手的热乎的面经！</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-09-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/" data-title="百度APP技术部golang实习一面面经"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/" data-title="百度APP技术部golang实习一面面经"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/" data-title="百度APP技术部golang实习一面面经"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/" data-title="百度APP技术部golang实习一面面经" data-ralateuid="u/7708713224"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" class="prev" rel="prev" title="分布式对象存储系统项目总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>分布式对象存储系统项目总结</a>
+            <a href="/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%BA%8C%E9%9D%A2%E9%9D%A2%E7%BB%8F/" class="next" rel="next" title="百度APP技术部golang实习二面面经">百度APP技术部golang实习二面面经<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">RobKing</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
