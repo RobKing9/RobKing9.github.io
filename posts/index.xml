@@ -4,7 +4,15 @@
         <link>https://RobKing9.github.io/posts/</link>
         <description>All Posts | RobKing Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2768817839@qq.com (RobKing)</managingEditor>
-            <webMaster>2768817839@qq.com (RobKing)</webMaster><lastBuildDate>Thu, 08 Sep 2022 00:05:39 &#43;0800</lastBuildDate><atom:link href="https://RobKing9.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>2768817839@qq.com (RobKing)</webMaster><lastBuildDate>Tue, 13 Sep 2022 22:44:05 &#43;0800</lastBuildDate><atom:link href="https://RobKing9.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>UBuntu22.04编译内核 | 2022最新 | 详细图解</title>
+    <link>https://RobKing9.github.io/ubuntu20.04%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8/</link>
+    <pubDate>Tue, 13 Sep 2022 22:44:05 &#43;0800</pubDate>
+    <author>RobKing</author>
+    <guid>https://RobKing9.github.io/ubuntu20.04%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8/</guid>
+    <description><![CDATA[UBuntu22.04编译内核 | 2022最新 | 详细图解 官网下载内核源码 解压到 /usr/src目录 sudo tar -xavf linux-5.19.8.tar.xz /usr/src 下载安装一系列的软件，为编译内核做]]></description>
+</item>
+<item>
     <title>百度APP技术部 | Golang后端实习生 | 2022.09.07</title>
     <link>https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%BA%8C%E9%9D%A2%E9%9D%A2%E7%BB%8F/</link>
     <pubDate>Thu, 08 Sep 2022 00:05:39 &#43;0800</pubDate>
