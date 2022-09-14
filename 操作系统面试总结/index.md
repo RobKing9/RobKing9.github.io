@@ -1,7 +1,7 @@
-# 操作系统面试总结	 | 2022最新 | 斩获大厂offer
+# 操作系统面试总结	 | 2022最新 
 
 
-# 操作系统面试总结 | 2022最新 | 斩获大厂offer
+# 操作系统面试总结 | 2022最新 
 
 ## [github链接](https://github.com/RobKing9/BackInterview_Tour)欢迎star！
 
