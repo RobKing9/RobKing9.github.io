@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Docker教程 从配置到部署项目 - RobKing Blog</title><meta name="Description" content="这是一个有温度，有情怀的技术博客"><meta property="og:title" content="Docker教程 从配置到部署项目" />
+<meta property="og:description" content="Docker教程 从配置到部署项目 安装与配置 Ubuntu环境 ubuntu安装docker教程 拉取镜像太慢，配置镜像加速 vim /etc/docker/daemon.json 对于使用 systemd 的系统，请" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://RobKing9.github.io/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/" /><meta property="og:image" content="https://RobKing9.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-25T23:44:51+08:00" />
+<meta property="article:modified_time" content="2022-09-25T23:44:51+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://RobKing9.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Docker教程 从配置到部署项目"/>
+<meta name="twitter:description" content="Docker教程 从配置到部署项目 安装与配置 Ubuntu环境 ubuntu安装docker教程 拉取镜像太慢，配置镜像加速 vim /etc/docker/daemon.json 对于使用 systemd 的系统，请"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://RobKing9.github.io/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/" /><link rel="prev" href="https://RobKing9.github.io/ubuntu20.04%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker教程 从配置到部署项目",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/RobKing9.github.io\/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE\/"
+        },"genre": "posts","wordcount":  2326 ,
+        "url": "https:\/\/RobKing9.github.io\/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE\/","datePublished": "2022-09-25T23:44:51+08:00","dateModified": "2022-09-25T23:44:51+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "RobKing"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="RobKing Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="记载着所有的文章"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="RobKing Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="记载着所有的文章">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker教程 从配置到部署项目</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>RobKing</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-25">2022-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2326 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;<span id="/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/" class="leancloud_visitors" data-flag-title="Docker教程 从配置到部署项目">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装与配置">安装与配置</a>
+      <ul>
+        <li><a href="#ubuntu环境">Ubuntu环境</a></li>
+        <li><a href="#mac系统">Mac系统</a></li>
+      </ul>
+    </li>
+    <li><a href="#初步了解">初步了解</a></li>
+    <li><a href="#常用指令">常用指令</a>
+      <ul>
+        <li><a href="#镜像image相关">镜像image相关</a></li>
+        <li><a href="#容器container相关">容器container相关</a></li>
+        <li><a href="#dockerfile">Dockerfile</a></li>
+      </ul>
+    </li>
+    <li><a href="#拉取mysql过程">拉取MySQL过程</a></li>
+    <li><a href="#docker部署ginmysqlredis项目">Docker部署<code>Gin+MySQL+Redis</code>项目</a>
+      <ul>
+        <li><a href="#mysql">MySQL</a></li>
+        <li><a href="#redis">Redis</a></li>
+        <li><a href="#mall项目">mall(项目)</a></li>
+        <li><a href="#docker-compose进行容器的管理">Docker-compose进行容器的管理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="docker教程-从配置到部署项目">Docker教程 从配置到部署项目</h1>
+<h2 id="安装与配置">安装与配置</h2>
+<h3 id="ubuntu环境">Ubuntu环境</h3>
+<ul>
+<li>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank" rel="noopener noreffer ">ubuntu安装docker教程</a></p>
+</li>
+<li>
+<p>拉取镜像太慢，配置镜像加速</p>
+</li>
+<li>
+<p><code>vim /etc/docker/daemon.json</code></p>
+<p>对于使用 systemd 的系统，请在 /etc/docker/daemon.json 中写入如下内容（如果文件不存在请新建该文件）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{&#34;registry-mirrors&#34;:[&#34;https://reg-mirror.qiniu.com/&#34;]}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以添加多个</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">科大镜像：https://docker.mirrors.ustc.edu.cn/
+</span></span><span class="line"><span class="cl">网易：https://hub-mirror.c.163.com/
+</span></span><span class="line"><span class="cl">阿里云：https://&lt;你的ID&gt;.mirror.aliyuncs.com
+</span></span><span class="line"><span class="cl">七牛云加速器：https://reg-mirror.qiniu.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>重新启动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">$ sudo systemctl restart docker
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="mac系统">Mac系统</h3>
+<p>直接使用brew安装cask</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install --cask docker
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>会下载桌面版本的docker，之后按照提示运行即可</p>
+<h2 id="初步了解">初步了解</h2>
+<p>镜像：类似于虚拟机的镜像，提供执行环境，比如go语言的镜像，就是提供go语言的运行环境</p>
+<p>容器：镜像通过执行run方法可以得到一个容器，比如是ubuntu环境，可以在容器里安装RabbitMQ，ES环境。</p>
+<p>仓库：拉取镜像的地方</p>
+<p>Dockerfile：文本文件（脚本），包含很多执行指令，用于构建自己的镜像，可用于扩展官方镜像。相当于docker image build 的构建镜像的源代码</p>
+<p>从仓库（一般为DockerHub）下载（pull）一个镜像，Docker执行run方法得到一个容器，用户在容器里执行各种操作。Docker执行commit方法将一个容器转化为镜像。Docker利用login、push等命令将本地镜像推送（push）到仓库。其他机器或服务器上就可以使用该镜像去生成容器，进而运行相应的应用程序了。</p>
+<h2 id="常用指令">常用指令</h2>
+<h3 id="镜像image相关">镜像image相关</h3>
+<ul>
+<li>
+<p><code>docker build</code></p>
+</li>
+<li>
+<p><code>docker image pull</code> 拉取镜像</p>
+</li>
+<li>
+<p><code>docker image ls</code> 正在使用的镜像 (<code>docker images</code>)</p>
+</li>
+<li>
+<p><code>docker image ls --all</code> 全部镜像</p>
+</li>
+<li>
+<p><code>docker rmi &lt;IMAGEID&gt;</code>删除镜像，如果该镜像被容器引用了不能完全删除，需要先删除容器</p>
+</li>
+<li>
+<p><code>docker create -it &lt;镜像名&gt;</code>  通过镜像创建container</p>
+</li>
+<li>
+<p><code>docker run -it &lt;镜像名&gt;</code> 通过镜像创建并运行container</p>
+<p><code>-p 8080:8080</code> -p表示端口映射，格式：<code>宿主机端口：容器运行端口</code></p>
+<p><code>-e MYSQL_ROOT_PASSWORD=123456 mysql</code>-e表示添加环境变量，这里是mysql的密码。</p>
+<p><code>--name &lt;name&gt;</code> 将容器命名为</p>
+</li>
+</ul>
+<h3 id="容器container相关">容器container相关</h3>
+<ul>
+<li>
+<p><code>docker container ls</code>  正在运行的container</p>
+</li>
+<li>
+<p><code>docker container ls --all</code>  已经使用完的container</p>
+</li>
+<li>
+<p><code>docker ps</code>查看正在运行的容器</p>
+</li>
+<li>
+<p><code>docker ps -a</code>  查看已经退出的容器</p>
+</li>
+<li>
+<p><code>docker run -d -it --name centos.7.2 centos:7</code>  -d在后台运行  -it 值得是保持stdout以及分配终端</p>
+<p><code>-i</code> 进入container内部</p>
+</li>
+<li>
+<p><code>docker exec -it 容器名称 (或者容器ID)  /bin/bash</code></p>
+<p>在宿主机上进入容器，登录守护式容器</p>
+</li>
+<li>
+<p><code>docker logs 镜像名</code> 查看日志</p>
+</li>
+<li>
+<p><code>docker container kill id</code> 杀死正在使用的container</p>
+</li>
+<li>
+<p><code>docker start/stop &lt;CONTAINERID&gt;</code> 启动刚create的或者已经停止的container</p>
+</li>
+<li>
+<p><code>docker (container) rm id</code> 删除使用完的container 防止占用内存</p>
+</li>
+<li>
+<p><code>docker network create test-network</code> 容器通信</p>
+<p>&ndash;network 名字</p>
+</li>
+</ul>
+<p>push到dockerhub</p>
+<ul>
+<li><code>docker login</code>登录dockerhub账号</li>
+<li><code>docker push &lt;imageName&gt;</code></li>
+</ul>
+<h3 id="dockerfile">Dockerfile</h3>
+<h2 id="拉取mysql过程">拉取MySQL过程</h2>
+<ol>
+<li>
+<p>拉取镜像 <code>docker pull mysql</code></p>
+</li>
+<li>
+<p><code>docker images</code>查看是否成功</p>
+</li>
+<li>
+<p><code>docker run -d &lt;镜像名&gt; -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql -v /var/lib/mysql:/var/lib/mysql  --name &lt;name&gt; </code>启动容器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">--name mysql 
+</span></span><span class="line"><span class="cl">表示将这个容器命名为mysql
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-v /var/lib/mysql:/var/lib/mysql 
+</span></span><span class="line"><span class="cl">表示将宿主机的 /var/lib/mysql 卷映射到容器里的 /var/lib/mysql 卷中，这里是为了我们能够把这个数据保存在宿主机中，防止容器删掉就没了。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root 
+</span></span><span class="line"><span class="cl">表示MySQL的密码这里设置了root
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-p 3306:3306
+</span></span><span class="line"><span class="cl">将宿主机的3306端口映射到容器的3306端口
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-d 
+</span></span><span class="line"><span class="cl">后台运行
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql:8.0 
+</span></span><span class="line"><span class="cl">使用mysql:8.0这个镜像
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>docker ps</code>查看启动是否成功</p>
+</li>
+<li>
+<p><code>docker exec -it robking_mysql&lt;容器名称&gt;  /bin/bash</code> 在宿主机上进入容器，登录守护式容器</p>
+</li>
+<li>
+<p><code>mysql -u root -p</code>登录mysql</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914010551.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914010551.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914010551.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914010551.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914010551.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914010551.png" /></p>
+</li>
+<li>
+<p>查看mysql版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-- 第一种
+</span></span><span class="line"><span class="cl">select version();
+</span></span><span class="line"><span class="cl">--第二种
+</span></span><span class="line"><span class="cl">select @@version; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>获取docker主机ip，一般应该用第二个吧</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220913232347.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220913232347.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220913232347.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220913232347.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220913232347.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220913232347.png" /></p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run --name robking_redis -v /usr/local/redis:/usr/local/redis -p 6379:6379 -d redis:latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="docker部署ginmysqlredis项目">Docker部署<code>Gin+MySQL+Redis</code>项目</h2>
+<h3 id="mysql">MySQL</h3>
+<ol>
+<li>
+<p><code>docker pull mysql</code>拉取mysql镜像</p>
+</li>
+<li>
+<p><code>docker run --name mysql -v /var/lib/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql</code></p>
+<p>启动mysql容器，具体使用参考上面</p>
+</li>
+</ol>
+<h3 id="redis">Redis</h3>
+<ol>
+<li>
+<p><code>docker pull redis</code>拉取redis镜像</p>
+</li>
+<li>
+<p><code>docker run --name redis -v /usr/local/redis:/usr/local/redis -p 6379:6379 -d redis</code></p>
+<p>启动redis容器，通过 <code>docker ps</code>查看容器正在运行</p>
+</li>
+</ol>
+<h3 id="mall项目">mall(项目)</h3>
+<ol>
+<li>
+<p>制作项目 <code>Dockerfile</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> golang:lasest</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">GO111MODULE</span><span class="o">=</span>on <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARCH</span><span class="o">=</span>amd64 go build  -ldflags<span class="o">=</span><span class="s2">&#34;-w -s&#34;</span> -o main<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> mkdir publish  <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> cp main publish  <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> cp -r conf publish<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 指定运行时环境变量</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">GIN_MODE</span><span class="o">=</span>release
+</span></span><span class="line"><span class="cl"><span class="k">EXPOSE</span><span class="s"> 3000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;./main&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改项目的配置文件，这个配置文件里面主要包括</p>
+<p>mysql的ip:port; redis的ip:port; mysql连接信息包括账号密码，使用的数据库</p>
+</li>
+<li>
+<p><code>docker build -t mall:1.0 .</code>将我们的项目通过Dockerfile制作成镜像</p>
+<p>此时会去下载golang环境(镜像)，编译我们的程序，下载相关的依赖，指定暴露的端口</p>
+<p>成功的标志是每一步都会返回一串id</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914021328.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914021328.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914021328.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914021328.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914021328.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914021328.png" /></p>
+</li>
+<li>
+<p><code>docker run --name mall -p 3000:3000 -d mall:1.0</code>运行这个镜像</p>
+<p>在后面加上 <code>--rm</code>将会在容器结束运行时自动删除</p>
+<p>我的理解是相当于我们在本地启动项目</p>
+</li>
+<li>
+<p>如果启动失败出现数据库连接失败或者忘记建数据库了那么就需要<strong>重新删除项目的镜像</strong>，<strong>改动我们的代码</strong>，<strong>重新通过Dockerfile制作成镜像</strong>，<strong>然后重新运行这个镜像</strong>(启动项目)</p>
+</li>
+</ol>
+<h3 id="docker-compose进行容器的管理">Docker-compose进行容器的管理</h3>
+<p>当我们有多个容器需要启动的时候，我们可以用<code>docker-compose.yml</code>进行容器的管理</p>
+<p>此时我们已有的东西是：mysql，redis，mall(项目)三个镜像，但是都没有启动，也就是说此时的<strong>mysql没有设置密码，数据库</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">civil</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">./</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mall:1.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">robking_mall</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_DSN</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;root:123456@tcp/test?charset=utf8&amp;parseTime=True&amp;loc=Local&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">9999</span><span class="p">:</span><span class="m">9999</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">robking_mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="m">123456</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l">test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/var/lib/mysql:/var/lib/mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">3306</span><span class="p">:</span><span class="m">3306</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">robking_redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/usr/local/redis:/usr/local/redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">6379</span><span class="p">:</span><span class="m">6379</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个文件其实就是将三个镜像运行成容器的指令用文件的方式进行配置，然后运行起来，项目是依赖mysql和redis，所以会先让这两个先启动，然后再启动项目容器</p>
+<p><code>docker-compose -f docker-compose.yml up -d</code>创建并启动三个容器</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914022007.png"
+        data-srcset="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914022007.png, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914022007.png 1.5x, https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914022007.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914022007.png"
+        title="https://raw.githubusercontent.com/RobKing9/Blog_Pic/master/Git/20220914022007.png" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-09-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://RobKing9.github.io/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/" data-title="Docker教程 从配置到部署项目"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://RobKing9.github.io/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://RobKing9.github.io/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/" data-title="Docker教程 从配置到部署项目"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://RobKing9.github.io/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/" data-title="Docker教程 从配置到部署项目"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://RobKing9.github.io/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/" data-title="Docker教程 从配置到部署项目" data-ralateuid="u/7708713224"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/ubuntu20.04%E7%BC%96%E8%AF%91%E5%86%85%E6%A0%B8/" class="prev" rel="prev" title="UBuntu22.04编译内核 | 2022最新 | 详细图解"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>UBuntu22.04编译内核 | 2022最新 | 详细图解</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.103.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">RobKing</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"","appKey":"","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"visitor":true}},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
