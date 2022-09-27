@@ -4,9 +4,17 @@
         <link>https://RobKing9.github.io/</link>
         <description>这是一个有温度，有情怀的技术博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2768817839@qq.com (RobKing)</managingEditor>
-            <webMaster>2768817839@qq.com (RobKing)</webMaster><lastBuildDate>Sun, 25 Sep 2022 23:44:51 &#43;0800</lastBuildDate>
+            <webMaster>2768817839@qq.com (RobKing)</webMaster><lastBuildDate>Tue, 27 Sep 2022 19:30:39 &#43;0800</lastBuildDate>
             <atom:link href="https://RobKing9.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Mac使用指南</title>
+    <link>https://RobKing9.github.io/mac%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+    <pubDate>Tue, 27 Sep 2022 19:30:39 &#43;0800</pubDate>
+    <author>RobKing</author>
+    <guid>https://RobKing9.github.io/mac%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+    <description><![CDATA[Mac使用指南 系统快捷指令 cmd+shift+4截图 Option-Command-Esc强制退出 App Command-M将最前面的窗口最小化至“]]></description>
+</item>
+<item>
     <title>Docker教程 从配置到部署项目</title>
     <link>https://RobKing9.github.io/docker%E6%95%99%E7%A8%8B-%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/</link>
     <pubDate>Sun, 25 Sep 2022 23:44:51 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>RobKing</author>
     <guid>https://RobKing9.github.io/%E8%BE%B9%E6%97%A0%E9%99%85golang%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E7%BB%8F/</guid>
     <description><![CDATA[边无际 | Golang后端开发 | 2022.06.25 这算是我学习go语言来第一次参加面试。 一面 一面是在5月份左右 自我介绍 channel关闭了去读去写会出现什么问]]></description>
-</item>
-<item>
-    <title>字节跳动 | 今日头条后端开发 | 2022.06.23</title>
-    <link>https://RobKing9.github.io/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E7%BB%8F/</link>
-    <pubDate>Mon, 27 Jun 2022 22:33:42 &#43;0800</pubDate>
-    <author>RobKing</author>
-    <guid>https://RobKing9.github.io/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E7%BB%8F/</guid>
-    <description><![CDATA[字节跳动 | 今日头条后端开发 | 2022.06.23 ​ 其实去字节面试也不是我主动投的简历，在牛客网上，面试官可能看到了我的简历，然后邀请我投递，我就顺手发了过去，]]></description>
 </item>
 </channel>
 </rss>
