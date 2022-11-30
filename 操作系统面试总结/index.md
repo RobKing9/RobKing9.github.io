@@ -1,7 +1,7 @@
-# 操作系统面试总结	 | 2022最新 
+# 操作系统知识总结
 
 
-# 操作系统面试总结 | 2022最新 
+# 操作系统知识总结
 
 ## [github链接](https://github.com/RobKing9/BackInterview_Tour)欢迎star！
 
