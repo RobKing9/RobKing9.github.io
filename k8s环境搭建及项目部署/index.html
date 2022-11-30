@@ -8,8 +8,8 @@
 <meta property="og:description" content="Mac使用MiniKube搭建K8s环境 首先配置好docker环境 安装kubectl 1 brew install kubectl 在官网下载virtualbox，配置为默认驱动 1" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://RobKing9.github.io/k8s%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" /><meta property="og:image" content="https://RobKing9.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-10-06T17:19:11+08:00" />
-<meta property="article:modified_time" content="2022-10-06T17:19:11+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta property="article:published_time" content="2022-11-29T17:19:11+08:00" />
+<meta property="article:modified_time" content="2022-11-29T17:19:11+08:00" /><meta property="og:site_name" content="我的网站" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://RobKing9.github.io/logo.png"/>
@@ -19,7 +19,7 @@
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://RobKing9.github.io/k8s%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" /><link rel="prev" href="https://RobKing9.github.io/mac%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" /><link rel="next" href="https://RobKing9.github.io/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9D%A2%E7%BB%8F/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://RobKing9.github.io/k8s%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" /><link rel="prev" href="https://RobKing9.github.io/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9D%A2%E7%BB%8F/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -31,7 +31,7 @@
             "@type": "WebPage",
             "@id": "https:\/\/RobKing9.github.io\/k8s%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2\/"
         },"genre": "posts","wordcount":  1735 ,
-        "url": "https:\/\/RobKing9.github.io\/k8s%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2\/","datePublished": "2022-10-06T17:19:11+08:00","dateModified": "2022-10-06T17:19:11+08:00","publisher": {
+        "url": "https:\/\/RobKing9.github.io\/k8s%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2\/","datePublished": "2022-11-29T17:19:11+08:00","dateModified": "2022-11-29T17:19:11+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -105,7 +105,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">K8s环境搭建及项目部署</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>RobKing</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-06">2022-10-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1735 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-29">2022-11-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1735 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -640,7 +640,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-10-06</span>
+                <span>Updated on 2022-11-29</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -659,8 +659,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/mac%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="prev" rel="prev" title="Mac 研究和使用总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Mac 研究和使用总结</a>
-            <a href="/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9D%A2%E7%BB%8F/" class="next" rel="next" title="字节跳动 | 抖音支付golang实习 ">字节跳动 | 抖音支付golang实习 <i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9D%A2%E7%BB%8F/" class="prev" rel="prev" title="字节跳动 | 抖音支付golang实习 "><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>字节跳动 | 抖音支付golang实习 </a></div>
 </div>
 <div id="comments"><div id="giscus" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.
