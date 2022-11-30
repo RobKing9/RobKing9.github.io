@@ -2,8 +2,9 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://RobKing9.github.io/posts/</loc><lastmod>2022-11-13T22:47:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://RobKing9.github.io/</loc><lastmod>2022-11-13T22:47:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://RobKing9.github.io/hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc><lastmod>2022-11-30T15:29:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://RobKing9.github.io/posts/</loc><lastmod>2022-11-30T15:29:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://RobKing9.github.io/</loc><lastmod>2022-11-30T15:29:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://RobKing9.github.io/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9D%A2%E7%BB%8F/</loc><lastmod>2022-11-13T22:47:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://RobKing9.github.io/k8s%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</loc><lastmod>2022-10-06T17:19:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://RobKing9.github.io/mac%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc><lastmod>2022-09-27T19:30:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
