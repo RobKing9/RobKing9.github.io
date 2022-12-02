@@ -21,14 +21,6 @@
     <description><![CDATA[Mac使用MiniKube搭建K8s环境 首先配置好docker环境 安装kubectl 1 brew install kubectl 在官网下载virtualbox，配置为默认驱动 1]]></description>
 </item>
 <item>
-    <title>字节跳动 | 抖音支付golang实习 </title>
-    <link>https://RobKing9.github.io/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9D%A2%E7%BB%8F/</link>
-    <pubDate>Sun, 13 Nov 2022 22:47:33 &#43;0800</pubDate>
-    <author>RobKing</author>
-    <guid>https://RobKing9.github.io/%E5%AD%97%E8%8A%82%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9D%A2%E7%BB%8F/</guid>
-    <description><![CDATA[字节跳动 | 抖音支付golang实习 | 2022.11.7 时间：2022.11.7 16:00-17:00 60min ​ 又是在牛客网被邀请投递，我发现字节好喜欢邀请我，被邀请三次了，主动投递不]]></description>
-</item>
-<item>
     <title>Mac 研究和使用总结</title>
     <link>https://RobKing9.github.io/mac%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
     <pubDate>Tue, 27 Sep 2022 19:30:39 &#43;0800</pubDate>
@@ -53,20 +45,12 @@
     <description><![CDATA[UBuntu22.04编译内核 官网下载内核源码 解压到 /usr/src目录 sudo tar -xavf linux-5.19.8.tar.xz /usr/src 下载安装一系列的软件，为编译内核做准备 sudo apt install libncurses5-dev openssl libssl-dev build-essential pkg-config libc6-dev bison]]></description>
 </item>
 <item>
-    <title>百度APP技术部 | Golang后端实习生 | 2022.09.07</title>
+    <title>百度APP技术部 | 后端实习生 | 2022.09.07</title>
     <link>https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%BA%8C%E9%9D%A2%E9%9D%A2%E7%BB%8F/</link>
     <pubDate>Thu, 08 Sep 2022 00:05:39 &#43;0800</pubDate>
     <author>RobKing</author>
     <guid>https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%BA%8C%E9%9D%A2%E9%9D%A2%E7%BB%8F/</guid>
-    <description><![CDATA[百度APP技术部 | Golang后端实习生 | 2022.09.07 二面面试 时间：2022.09.07 晚上19:00-20:02 时长：1h2min 自我介绍 项目都是自]]></description>
-</item>
-<item>
-    <title>百度APP技术部 | Golang后端实习生 | 2022.09.06</title>
-    <link>https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/</link>
-    <pubDate>Wed, 07 Sep 2022 23:47:58 &#43;0800</pubDate>
-    <author>RobKing</author>
-    <guid>https://RobKing9.github.io/%E7%99%BE%E5%BA%A6app%E6%8A%80%E6%9C%AF%E9%83%A8golang%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2%E9%9D%A2%E7%BB%8F/</guid>
-    <description><![CDATA[百度APP技术部 | Golang后端实习生 | 2022.09.06 一面面试 时间：2022.09.06 下午14:00-14:51 时长：51min 自我介绍 简单介绍项目]]></description>
+    <description><![CDATA[百度APP技术部 | 后端实习生 | 2022.09.07 二面面试 时间：2022.09.07 晚上19:00-20:02 时长：1h2min 自我介绍 项目都是自己做的吗？ 介]]></description>
 </item>
 <item>
     <title>分布式对象存储系统项目总结</title>
@@ -83,6 +67,22 @@
     <author>RobKing</author>
     <guid>https://RobKing9.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
     <description><![CDATA[Git的安装和配置 下载Git 配置环境变量 检验安装成功 配置全局信息 1 2 3 git config --global user.name &#34;RobKing&#34; //用户名 git config --global user.email &#34;2768817839@qq.com&#34; //邮箱 git config -l //查看全局信息 配置代理 git]]></description>
+</item>
+<item>
+    <title>操作系统知识总结</title>
+    <link>https://RobKing9.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Fri, 15 Jul 2022 09:52:45 &#43;0800</pubDate>
+    <author>RobKing</author>
+    <guid>https://RobKing9.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[操作系统知识总结 github链接欢迎star！ 我的博客 进程，线程，协程 简述线程和进程的区别和联系 进程的状态与状态转换 什么是孤儿进程？僵尸进程]]></description>
+</item>
+<item>
+    <title>计算机网络知识总结 </title>
+    <link>https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Wed, 06 Jul 2022 10:34:50 &#43;0800</pubDate>
+    <author>RobKing</author>
+    <guid>https://RobKing9.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[计算机网络 github地址 HTTP，HTTPS，DNS协议 OSI七层模型 介绍一下OSI七层模型和TCP五层模型？ TCP,UDP,IP协议分别]]></description>
 </item>
 </channel>
 </rss>
